@@ -100,4 +100,4 @@ con = sqlite3.connect("app/posts.db")
 cur = con.cursor()
 for i in range(len(keys)):
     row = (keys[i], usernames[i], captions[i], imgs[i])
-    cur.execute("INSERT INTO test1 VALUES(?)", row)
+    cur.execute("INSERT INTO posts VALUES(?)", row)
