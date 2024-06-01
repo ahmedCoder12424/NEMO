@@ -24,10 +24,10 @@ jobs:
           sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
           sudo apt-get update
           sudo apt-get install google-chrome-stable
-      #- name: Remove default Chromium
-      #  run: sudo apt purge chromium-browser
-      #- name: Install a new Chromium
-      #  run: sudo apt install -y chromium-browser
+      - name: Remove default Chromium
+        run: sudo apt purge chromium-browser
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
         run: pip install webdriver-manager selenium easyocr
       - name: Run the scraping script
