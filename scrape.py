@@ -77,28 +77,15 @@ while lastPostID not in postSet:
             captions.pop()
             keys.pop()
             usernames.pop()
-            
-        #print("\n")
         
     time.sleep(1)
 
 driver.quit()
 
-# print(usernames)
-# print(len(usernames))
-
-# print(imgs)
-# print(len(imgs))
-
-# print(captions)
-# print(len(captions))
-
-# print(keys)
-# print(len(keys))
-
 con = sqlite3.connect("app/posts.db")
 cur = con.cursor()
 for i in range(len(keys)):
     row = (keys[i], usernames[i], captions[i], imgs[i])
-    cur.execute("INSERT INTO posts VALUES(?)", row)
-    print('done')
+    cur.execute("INSERT OR IGNORE INTO posts VALUES(?, ?, ?, ?)", row)
+con.commit()
+con.close()
