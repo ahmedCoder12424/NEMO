@@ -46,7 +46,7 @@ except:
 driver.get('https://www.instagram.com/?variant=following')
 
 time.sleep(2)
-driver.execute_script("window.scrollBy(0, document.body.scrollHeight);")
+driver.execute_script("window.scrollBy(0, 400);")
 time.sleep(2)
 lastPost =  driver.find_elements(By.CSS_SELECTOR,"div[class='x78zum5 xdt5ytf x5yr21d xa1mljc xh8yej3 x1bs97v6 x1q0q8m5 xso031l x11aubdm xnc8uc2']")[-1]
 lastPostID = lastPost.find_element(By.CSS_SELECTOR,"div[class='x1rg5ohu xw3qccf']").text + lastPost.find_element(By.CSS_SELECTOR,"span[class='_ap3a _aaco _aacu _aacx _aad7 _aade']").text[:10]
