@@ -36,9 +36,12 @@ password.send_keys('fattyPatties31$')
 
 log_in = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
 time.sleep(5)
-popup = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[tabindex='0']"))).click()
-time.sleep(0.5)
-popup2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[class='_a9-- _ap36 _a9_1']"))).click()
+try:
+    popup = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[tabindex='0']"))).click()
+    time.sleep(0.5)
+    popup2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[class='_a9-- _ap36 _a9_1']"))).click()
+except:
+    pass
 driver.get('https://www.instagram.com/?variant=following')
 
 time.sleep(2)
