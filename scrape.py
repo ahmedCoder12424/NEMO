@@ -14,6 +14,7 @@ import sqlite3
 service = Service(ChromeDriverManager().install())
 options = webdriver.ChromeOptions()
 opt = [
+    "--headless=new",
     "--disable-gpu",
     "--ignore-certificate-errors",
     "--disable-extensions",
