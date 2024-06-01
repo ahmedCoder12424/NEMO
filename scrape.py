@@ -11,7 +11,7 @@ import time
 import sqlite3
 #import easyocr
 
-service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+service = Service(ChromeDriverManager().install())
 options = webdriver.ChromeOptions()
 opt = [
     "--disable-gpu",
