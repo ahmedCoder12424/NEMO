@@ -9,7 +9,7 @@ from selenium.webdriver.common.by import By
 import random
 import time
 import sqlite3
-import easyocr
+#import easyocr
 
 service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 options = webdriver.ChromeOptions()
@@ -41,7 +41,7 @@ driver.get('https://www.instagram.com/?variant=following')
 time.sleep(2)
 
 postSet = set()
-reader = easyocr.Reader(['en'])
+#reader = easyocr.Reader(['en'])
 posts = []
 usernames = []
 imgs = []
