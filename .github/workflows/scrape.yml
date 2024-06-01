@@ -16,8 +16,14 @@ jobs:
           python-version: '3.9'
       - name: Installed package list
         run: apt list --installed
-      #- name: Remove Chrome
-      #  run: sudo apt purge google-chrome-stable
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+      - name: Install Chrome
+        run: |
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+          sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+          sudo apt-get update
+          sudo apt-get install google-chrome-stable
       #- name: Remove default Chromium
       #  run: sudo apt purge chromium-browser
       #- name: Install a new Chromium
