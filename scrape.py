@@ -11,7 +11,7 @@ import time
 import sqlite3
 import easyocr
 
-service = Service(ChromeDriverManager().install())
+service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 options = webdriver.ChromeOptions()
 #options.add_argument('--headless=new') #open browser in background
 driver = webdriver.Chrome(service=service, options=options)
