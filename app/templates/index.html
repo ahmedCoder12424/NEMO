@@ -4,11 +4,19 @@
 
 <body>
     <h1>Find Events Going On At UCSD!</h1>
-    <ol>
-        {% for i in names %}
-        <li>{{i}}</li>
-        {% endfor %}
-    </ol>
+    <table>
+        <body>
+          {% for i in range(l) %}
+          <tr>
+            <td>{{ usernames[i] }}</td>
+            <td>{{ captions[i] }}</td>
+            <td>
+                <img src="{{ imgs[i] }}" alt="{{ imgs[i] }}"/>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     
     
 </body>
