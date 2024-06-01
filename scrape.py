@@ -17,6 +17,7 @@ opt = [
     "--headless=new",
     "--disable-gpu",
     "--ignore-certificate-errors",
+    "window-size=1920,1080",
     "--disable-extensions",
     "--no-sandbox",
     "--disable-dev-shm-usage"]
