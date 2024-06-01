@@ -84,17 +84,20 @@ while lastPostID not in postSet:
 
 driver.quit()
 
-print(usernames)
-print(len(usernames))
+# print(usernames)
+# print(len(usernames))
 
-print(imgs)
-print(len(imgs))
+# print(imgs)
+# print(len(imgs))
 
-print(captions)
-print(len(captions))
+# print(captions)
+# print(len(captions))
 
-print(keys)
-print(len(keys))
+# print(keys)
+# print(len(keys))
 
-#con = sqlite3.connect("app/posts.db")
-#cur = con.cursor()
+con = sqlite3.connect("app/posts.db")
+cur = con.cursor()
+for i in range(len(keys)):
+    row = (keys[i], usernames[i], captions[i], imgs[i])
+    cur.execute("INSERT INTO test1 VALUES(?)", row)
