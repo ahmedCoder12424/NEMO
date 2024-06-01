@@ -13,7 +13,15 @@ import sqlite3
 
 service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
 options = webdriver.ChromeOptions()
+opt = [
+    "--disable-gpu",
+    "--ignore-certificate-errors",
+    "--disable-extensions",
+    "--no-sandbox",
+    "--disable-dev-shm-usage"]
 #options.add_argument('--headless=new') #open browser in background
+for o in opt:
+    options.add_argument(o)
 driver = webdriver.Chrome(service=service, options=options)
 driver.get('https://www.instagram.com')
 
