@@ -9,9 +9,10 @@ import time
 import sqlite3
 import easyocr
 
-options=webdriver.ChromeOptions()
+service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+options = webdriver.ChromeOptions()
 #options.add_argument('--headless=new') #open browser in background
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(service=service, options=options)
 driver.get('https://www.instagram.com')
 
 username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='username']")))
