@@ -17,7 +17,7 @@ opt = [
     "--headless=new",
     "--disable-gpu",
     "--ignore-certificate-errors",
-    "window-size=400,596",
+    "window-size=596,400",
     "--disable-extensions",
     "--no-sandbox",
     "--disable-dev-shm-usage"]
@@ -64,6 +64,7 @@ keys = []
 keywords = ['free', 'chipotle', 'food', 'snack', 'boba', 'tea', 'sandwich', 'pizza', 'donut', 'bahn mi', 'cookie', 
            'cater', 'potluck', 'bake', 'weed', 'alchohol', 'pyschedel']
 
+i = 0
 while lastPostID not in postSet:
     temp = driver.find_element(By.CSS_SELECTOR,"div[class='x78zum5 xdt5ytf x5yr21d xa1mljc xh8yej3 x1bs97v6 x1q0q8m5 xso031l x11aubdm xnc8uc2']")
     #if posts and temp == posts[-1]:
@@ -93,7 +94,9 @@ while lastPostID not in postSet:
             captions.pop()
             keys.pop()
             usernames.pop()
-        
+
+    i += 1
+    print('added post' + str(i))   
     time.sleep(1)
 
 driver.quit()
