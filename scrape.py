@@ -69,8 +69,12 @@ while True:
         driver.execute_script("window.scrollBy(0, 400);")
     else:
         stamp = driver.find_element(By.CSS_SELECTOR, 'div[class="x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1mh8g0r x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1"]')
+        print(stamp.text)
         if 'd' in stamp.text:
             break
+        if 'h' in stamp.text and len(stamp.text) == 3:
+            if int(stamp.text[:2]) > 12:
+                break
 
         WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "span[class='x1lliihq x1plvlek xryxfnj x1n2onr6 x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xvs91rp xo1l8bm x1roi4f4 x1yc453h x10wh9bi x1wdrske x8viiok x18hxmgj']"))).click()
         posts.append(temp)
@@ -125,16 +129,20 @@ while True:
             filtered_captions.pop()
             filtered_imgs.pop()
 
-    i += 1
-    print('added post' + str(i))   
+        i += 1
+        print('added post' + str(i))   
+    
     time.sleep(1)
 
 driver.quit()
 
 con = sqlite3.connect("app/posts.db")
 cur = con.cursor()
+i = 0
 for i in range(len(keys)):
     row = (keys[i], usernames[i], captions[i], imgs[i])
     cur.execute("INSERT OR IGNORE INTO posts VALUES(?, ?, ?, ?)", row)
+    i += 1
+    print('post' + str(i) + 'in database')  
 con.commit()
 con.close()
