@@ -13,6 +13,10 @@ def get_db_connection():
 
 @app.route("/")
 def index():
+    return render_template('index.html')
+
+@app.route("/events/")
+def events():
     conn = get_db_connection()
     usernames = conn.execute('SELECT username FROM posts').fetchall()
     usernames = [u[0] for u in usernames]
@@ -20,4 +24,5 @@ def index():
     captions = [c[0] for c in captions]
     imgs = conn.execute('SELECT img FROM posts').fetchall()
     imgs = [i[0] for i in imgs]
-    return render_template('index.html', l = len(usernames), usernames=usernames, captions=captions, imgs=imgs)
+    conn.close()
+    return render_template('events.html', l = len(usernames), usernames=usernames, captions=captions, imgs=imgs)

@@ -1,0 +1,58 @@
+<head>
+    <title>NEMO - UCSD Events</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        img {
+            height: 50%;
+            width: 100%;
+        }
+        .cap {
+            width: 50%;
+        }
+        body {
+            background-color: azure;
+        }
+        #UCSD {
+            width: 60px;
+            height: 60px;
+            margin-top: -60px;
+            margin-left: 1200px;
+        }
+        #logo {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Find Events Going On At UCSD!</h1>
+    <img id="UCSD" src="data:image/png;base64,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" alt="UCSD"/>
+    <table>
+        <body>
+          {% for i in range(l) %}
+          <tr>
+            <td>{{ usernames[i] }}</td>
+            <td class="cap">{{ captions[i] }}</td>
+            <td>
+                <img src="{{ imgs[i] }}" alt="Image cannot be displayed."/>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    
+    
+</body>
