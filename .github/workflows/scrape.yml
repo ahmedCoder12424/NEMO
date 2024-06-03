@@ -2,8 +2,6 @@ name: scrape
 on:
   schedule:
     - cron: '0 */12 * * *'
-  push:
-    branches: main
 jobs:
   scrape:
     runs-on: ubuntu-latest
